@@ -11,6 +11,7 @@ public class MainManager : MonoBehaviour
     public Rigidbody Ball;
 
     public Text ScoreText;
+    public Text PlayerName; // Add this line
     public GameObject GameOverText;
     
     private bool m_Started = false;
@@ -18,7 +19,6 @@ public class MainManager : MonoBehaviour
     
     private bool m_GameOver = false;
 
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +36,9 @@ public class MainManager : MonoBehaviour
                 brick.onDestroyed.AddListener(AddPoint);
             }
         }
+
+        // Display the player's name
+        PlayerName.text = "Player: " + DataManager.Instance.PlayerName;
     }
 
     private void Update()
@@ -74,3 +77,5 @@ public class MainManager : MonoBehaviour
         GameOverText.SetActive(true);
     }
 }
+
+
